@@ -1,5 +1,6 @@
 // custom typefaces
-import "typeface-montserrat"
-import "typeface-merriweather"
 
-import "prismjs/themes/prism.css"
+// this shit is heavy af, migrate to ur custom config
+import "fontsource-ibm-plex-serif";
+
+import "prismjs/themes/prism.css";

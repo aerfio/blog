@@ -1,19 +1,23 @@
 module.exports = {
   pathPrefix: "/leonids",
   siteMetadata: {
-    title: `Leonids`,
+    title: `Mateusz Puczyński`,
     author: {
-      name: `@ry_zou`,
+      name: `@aerfio`,
       summary: `web dev`,
     },
     description: `A simple, fixed sidebar two columns Gatsby.js blog starter.`,
     siteUrl: `https://renyuanz.github.io/leonids`,
-    social: {
-      twitter: `ry_zou`,
-    },
     defaultImage: "images/bg.jpeg",
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-typescript`,
+      options: {
+        isTSX: true,
+        allExtensions: true,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -72,16 +76,19 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
-    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    `gatsby-plugin-offline`,
+    // `gatsby-plugin-offline`,
     "gatsby-plugin-dark-mode",
-    `gatsby-plugin-postcss`,
+
+    "gatsby-plugin-postcss",
+    {
+      // this doesn't seem to work -> further inspect why
+      resolve: `gatsby-plugin-minify-classnames`,
+      options: {
+        dictionary: "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ0123456789",
+        enableOnDevelopment: false,
+      },
+    },
   ],
-}
+};

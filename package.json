@@ -1,13 +1,18 @@
 {
-  "name": "gatsby-starter-leonids",
+  "name": "gatsby-aerfio-blog",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "A blog powered by Gatsby and Markdown",
   "version": "0.1.0",
-  "author": "Renyuan Zou <zourenyuan@gmail.com>",
+  "author": "Mateusz Puczyński <mati6095@gmail.com>",
   "bugs": {
     "url": "https://github.com/renyuanz/leonids/issues"
   },
   "dependencies": {
+    "@tailwindcss/custom-forms": "^0.2.1",
+    "autoprefixer": "^10.0.1",
+    "cssnano": "^4.1.10",
+    "cssnano-preset-default": "^4.0.7",
+    "fontsource-ibm-plex-serif": "^3.0.9",
     "gatsby": "^2.24.47",
     "gatsby-image": "^2.4.16",
     "gatsby-plugin-dark-mode": "^1.1.2",
@@ -15,10 +20,10 @@
     "gatsby-plugin-google-analytics": "^2.3.13",
     "gatsby-plugin-manifest": "^2.4.23",
     "gatsby-plugin-offline": "^3.2.23",
-    "gatsby-plugin-postcss": "^2.3.11",
+    "gatsby-plugin-postcss": "^3.0.4",
     "gatsby-plugin-react-helmet": "^3.3.10",
     "gatsby-plugin-sharp": "^2.6.27",
-    "gatsby-plugin-typography": "^2.5.10",
+    "gatsby-plugin-typescript": "^2.4.21",
     "gatsby-remark-copy-linked-files": "^2.3.12",
     "gatsby-remark-images": "^3.3.25",
     "gatsby-remark-prismjs": "^3.5.10",
@@ -27,20 +32,34 @@
     "gatsby-source-filesystem": "^2.3.24",
     "gatsby-transformer-remark": "^2.8.28",
     "gatsby-transformer-sharp": "^2.5.13",
+    "postcss": "^8.1.4",
     "prismjs": "^1.21.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
-    "react-typography": "^0.16.19",
     "typeface-merriweather": "0.0.72",
-    "typeface-montserrat": "0.0.75",
-    "typography": "^0.16.19",
-    "typography-theme-github": "^0.16.19",
-    "typography-theme-wordpress-2016": "^0.16.19"
+    "typeface-montserrat": "0.0.75"
   },
   "devDependencies": {
-    "prettier": "2.0.5",
-    "tailwindcss": "^1.6.2"
+    "@types/node": "^14.11.8",
+    "@types/react": "^16.9.52",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-helmet": "^6.1.0",
+    "@typescript-eslint/eslint-plugin": "^4.4.0",
+    "@typescript-eslint/parser": "^4.4.0",
+    "eslint": "^7.11.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.4",
+    "eslint-plugin-react-hooks": "^4.1.2",
+    "eslint-plugin-sonarjs": "^0.5.0",
+    
+    
+    "prettier": "^2.1.2",
+    "tailwindcss": "^1.6.2",
+    "tslib": "^2.0.3",
+    "typescript": "^4.0.3"
   },
   "homepage": "https://github.com/renyuanz/leonids#readme",
   "keywords": [
@@ -53,12 +72,15 @@
     "url": "git+https://github.com/renyuanz/leonids.git"
   },
   "scripts": {
-    "build": "gatsby build",
-    "dev": "gatsby develop",
+    "build": "npm run clean && gatsby build",
+
+    "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests!\" && exit 1"
+    "test": "echo \"Write tests!\" && exit 1",
+    "lint-check": "eslint -f codeframe --ext .js,.jsx,.ts,.tsx src && prettier --check './src/**/*.{json,html,css,yaml}'",
+    "lint-fix": "eslint --format codeframe --ext .js,.jsx,.ts,.tsx src --fix; prettier --write './src/**/*.{json,html,css,yaml}'"
   }
 }

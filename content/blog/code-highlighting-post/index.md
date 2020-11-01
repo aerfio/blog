@@ -19,3 +19,8 @@ Syntax highlighting is a feature that displays source code, in different colors 
   width: 100%;
 }
 ```
+
+
+```javascript
+const xd = [1,2,3].map(el=>el+2)
+```

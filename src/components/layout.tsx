@@ -1,18 +1,29 @@
-import React from "react"
-import { Link } from "gatsby"
-import { ThemeToggler } from "gatsby-plugin-dark-mode"
-import { scale } from "../utils/typography"
+import React from "react";
+import { Link } from "gatsby";
+import { ThemeToggler } from "gatsby-plugin-dark-mode";
 
-import Footer from "./footer"
-import "./global.css"
+import Footer from "./footer";
+import "../styles/global.css";
+import "../styles/theme.css";
 
-const Layout = ({ location, title, children }) => {
+type ThemeType = "light" | "dark";
+
+const Layout: React.FunctionComponent<{ title: string }> = ({
+  title,
+  children,
+}) => {
   const toggle = (
     <ThemeToggler>
-      {({ toggleTheme, theme }) => {
-        const isDarkMode = theme === "dark"
-        if (theme == null) {
-          return null
+      {({
+        toggleTheme,
+        theme,
+      }: {
+        toggleTheme: (a: ThemeType) => void;
+        theme: ThemeType;
+      }) => {
+        const isDarkMode = theme === "dark";
+        if (theme === null) {
+          return null;
         }
 
         return (
@@ -51,59 +62,31 @@ const Layout = ({ location, title, children }) => {
               </svg>
             )}
           </button>
-        )
+        );
       }}
     </ThemeToggler>
-  )
-
-  const header = (
-    <>
-      {toggle}
-      <h2
-        style={{
-          ...scale(1),
-          marginBottom: 0,
-          marginTop: 0,
-          fontFamily: `Montserrat, sans-serif`,
-        }}
-      >
-        <Link
-          style={{
-            boxShadow: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-          {title}
-        </Link>
-      </h2>
-    </>
-  )
+  );
 
   return (
-    <div
-      style={{
-        backgroundColor: "var(--bg)",
-        color: "var(--textNormal)",
-        transition: "color 0.2s ease-out, background 0.2s ease-out",
-        minHeight: "100vh",
-      }}
-    >
-      <div className="sidebar">
-        <div
-          className="md:h-screen p-4 flex flex-col justify-center items-center"
-          style={{ minHeight: 200 }}
-        >
-          {header}
+    <div className="h-screen bg-primary transition-colors duration-200 ease-out">
+      <div className="flex flex-no-wrap xl:flex-row flex-col">
+        <div className="sidebar">
+          <div className="flex flex-col justify-center items-center">
+            {toggle}
+            <h2>
+              <Link className="shadow-none" to={`/`}>
+                {title}
+              </Link>
+            </h2>
+          </div>
+        </div>
+        <div className="px-12 xl:flex-grow">
+          <main>{children}</main>
+          <Footer />
         </div>
       </div>
-
-      <div className="main-content relative">
-        <main>{children}</main>
-        <Footer />
-      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
