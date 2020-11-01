@@ -15,4 +15,11 @@ module.exports = {
   variants: {},
   // https://github.com/tailwindcss/custom-forms
   plugins: [require("@tailwindcss/custom-forms")],
+  future: {
+    // remove build warnings https://tailwindcss.com/docs/upcoming-changes
+    removeDeprecatedGapUtilities: true,
+    purgeLayersByDefault: true,
+    defaultLineHeights: true,
+    standardFontWeights: true,
+  },
 };
