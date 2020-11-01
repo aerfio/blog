@@ -82,13 +82,13 @@ module.exports = {
     "gatsby-plugin-dark-mode",
 
     "gatsby-plugin-postcss",
-    {
-      // this doesn't seem to work -> further inspect why
-      resolve: `gatsby-plugin-minify-classnames`,
-      options: {
-        dictionary: "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ0123456789",
-        enableOnDevelopment: false,
-      },
-    },
+    // {
+    //   // this doesn't seem to work -> further inspect why
+    //   resolve: `gatsby-plugin-minify-classnames`,
+    //   options: {
+    //     dictionary: "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ0123456789",
+    //     enableOnDevelopment: false,
+    //   },
+    // },
   ],
 };
