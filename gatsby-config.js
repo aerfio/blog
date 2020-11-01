@@ -90,5 +90,16 @@ module.exports = {
     //     enableOnDevelopment: false,
     //   },
     // },
+    `gatsby-plugin-netlify`,
+    `gatsby-plugin-netlify-cache`,
+    "gatsby-plugin-uninline-styles",
+    {
+      resolve: "gatsby-plugin-webpack-bundle-analyser-v2",
+      options: {
+        analyzerMode: "static",
+        openAnalyzer: false,
+        reportFilename: "../build-reports/report.html",
+      },
+    },
   ],
 };
