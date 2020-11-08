@@ -29,7 +29,7 @@ const Layout: React.FunctionComponent<{ title: string }> = ({
         return (
           <button
             aria-label="theme-switch"
-            className="leading-none p-1"
+            className="leading-none p-1 text-main-text"
             onClick={() => toggleTheme(isDarkMode ? "light" : "dark")}
           >
             {isDarkMode ? (
@@ -69,18 +69,18 @@ const Layout: React.FunctionComponent<{ title: string }> = ({
 
   return (
     <div className="h-screen bg-primary transition-colors duration-200 ease-out">
-      <div className="flex flex-no-wrap xl:flex-row flex-col">
+      <div className="flex flex-no-wrap md:flex-row flex-col h-screen bg-primary">
         <div className="sidebar">
-          <div className="flex flex-col justify-center items-center">
+          <div className="flex flex-col justify-center items-center p-6">
             {toggle}
             <h2>
-              <Link className="shadow-none" to={`/`}>
+              <Link className="shadow-none text-main-text" to={`/`}>
                 {title}
               </Link>
             </h2>
           </div>
         </div>
-        <div className="px-12 xl:flex-grow">
+        <div className="main-content">
           <main>{children}</main>
           <Footer />
         </div>

@@ -62,17 +62,71 @@ module.exports = {
         trackingId: `UA-62251910-1`,
       },
     },
-    `gatsby-plugin-feed`, // TODO customize this shit
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) =>
+              allMarkdownRemark.edges.map(edge =>
+                Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node.excerpt,
+                  date: edge.node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  custom_elements: [{ "content:encoded": edge.node.html }],
+                }),
+              ),
+            query: `
+              {
+                allMarkdownRemark(
+                  sort: { order: DESC, fields: [frontmatter___date] },
+                ) {
+                  edges {
+                    node {
+                      excerpt
+                      html
+                      fields { slug }
+                      frontmatter {
+                        title
+                        date
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: "/rss.xml",
+            title: "Personal blog of Mateusz Puczyński",
+          },
+        ],
+      },
+    },
+
+    //  todo: add gatsby plugin sitemap
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Ryz`,
-        short_name: `Ryz`,
+        name: `Personal blog of Mateusz Puczyński`,
+        short_name: `Mateusz Puczyński blog`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `src/assets/custom-logo.png`, // This path is relative to the root of the site.
+        theme_color_in_head: false,
       },
     },
     `gatsby-plugin-react-helmet`,
@@ -92,6 +146,7 @@ module.exports = {
     // },
     `gatsby-plugin-netlify`,
     `gatsby-plugin-netlify-cache`,
+    "gatsby-plugin-sitemap",
     "gatsby-plugin-uninline-styles",
     {
       resolve: "gatsby-plugin-webpack-bundle-analyser-v2",

@@ -28,21 +28,12 @@ const Bio: React.FC = () => {
 
   const { author } = data.site.siteMetadata;
   return (
-    <div
-      style={{
-        display: `flex`,
-        // marginBottom: rhythm(2.5),
-      }}
-    >
+    <div className="flex">
       <Image
         fixed={data.avatar.childImageSharp.fixed}
         alt={author.name}
-        style={{
-          // marginRight: rhythm(1 / 2),
-          marginBottom: 0,
-          minWidth: 50,
-          borderRadius: `100%`,
-        }}
+        className="mb-0 "
+        // style={{minWidth: 50}}
         imgStyle={{
           borderRadius: `50%`,
         }}

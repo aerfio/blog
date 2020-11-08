@@ -49,24 +49,21 @@ const BlogIndex: React.FunctionComponent<PageProps<
         return (
           <article key={node.fields.slug}>
             <header>
-              <h3
-                style={
-                  {
-                    // marginBottom: rhythm(1 / 4),
-                  }
-                }
-              >
+              <h3 className="text-main-text mt-10 text-2xl">
                 <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
                   {title}
                 </Link>
               </h3>
-              <small>{node.frontmatter.date}</small>
+              <small className="text-secondary-text">
+                {node.frontmatter.date}
+              </small>
             </header>
             <section>
               <p
                 dangerouslySetInnerHTML={{
                   __html: node.frontmatter.description || node.excerpt,
                 }}
+                className="mb-5 text-main-text"
               />
             </section>
           </article>
@@ -74,25 +71,17 @@ const BlogIndex: React.FunctionComponent<PageProps<
       })}
 
       <nav>
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
+        <ul className="flex flex-wrap justify-between list-none p-0">
           <li>
             {!isFirst && (
-              <Link to={prevPage} rel="prev">
+              <Link to={prevPage} rel="prev" className="text-main-text">
                 ← Previous Page
               </Link>
             )}
           </li>
           <li>
             {!isLast && (
-              <Link to={nextPage} rel="next">
+              <Link to={nextPage} rel="next" className="text-main-text">
                 Next Page →
               </Link>
             )}
