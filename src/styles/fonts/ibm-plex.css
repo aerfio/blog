@@ -1,6 +1,5 @@
 /* TODO: uncomment those font-faces if needed */
 
-
 @font-face {
   font-family: "IBM Plex Serif";
   font-display: swap;
@@ -39,7 +38,6 @@
       format("woff");
 } */
 
-
 /* 
 
 @font-face {
@@ -55,8 +53,6 @@
       format("woff");
 } */
 
-
-
 /* @font-face {
   font-family: "IBM Plex Serif";
   font-display: swap;
@@ -68,7 +64,6 @@
     url("IBM-Plex-Serif/files/complete/woff/IBMPlexSerif-Italic.woff")
       format("woff");
 } */
-
 
 /* @font-face {
   font-family: "IBM Plex Serif";
@@ -95,7 +90,6 @@
       format("woff");
 } */
 
-
 @font-face {
   font-family: "IBM Plex Serif";
   font-display: swap;
@@ -120,10 +114,9 @@
       format("woff");
 } */
 
-
 @font-face {
   font-family: "IBM Plex Serif";
- font-display: swap;
+  font-display: swap;
   font-style: normal;
   font-weight: 400;
   src: local("IBM Plex Serif"), local("IBMPlexSerif"),
@@ -132,9 +125,6 @@
     url("IBM-Plex-Serif/files/complete/woff/IBMPlexSerif-Regular.woff")
       format("woff");
 }
-
-
-
 
 @font-face {
   font-family: "IBM Plex Serif";
@@ -147,9 +137,6 @@
     url("IBM-Plex-Serif/files/complete/woff/IBMPlexSerif-SemiBold.woff")
       format("woff");
 }
-
-
-
 
 /* 
 @font-face {
@@ -165,10 +152,6 @@
       format("woff");
 }
  */
-
-
-
-
 
 @font-face {
   font-family: "IBM Plex Serif";
@@ -224,4 +207,3 @@
     url("IBM-Plex-Serif/files/complete/woff/IBMPlexSerif-ThinItalic.woff")
       format("woff");
 } */
-

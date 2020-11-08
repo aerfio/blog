@@ -1,6 +1,6 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 
-const Footer = () => (
+const Footer: FunctionComponent = () => (
   <footer className="my-12 text-center text-main-text">
     © {new Date().getFullYear()}, Built with
     {` `}
