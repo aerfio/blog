@@ -6,16 +6,24 @@ body {
   font-family: "IBM Plex Serif", "Georgia", Times, serif;
 }
 
+.sidebar_main-content_container {
+  --width: 200px;
+  @apply flex flex-no-wrap flex-row flex-col h-screen bg-primary;
+}
+@screen md {
+  @apply flex-row;
+}
+
 .sidebar {
   width: 100%;
-  min-width: 380px;
   z-index: 1;
   @apply bg-secondary transition-colors duration-200 ease-out fixed;
 }
 
 @screen md {
   .sidebar {
-    min-width: unset;
+    width: var(--width);
+    min-width: var(--width);
     @apply h-screen flex justify-center;
   }
 }
@@ -24,13 +32,14 @@ body {
   position: absolute;
   z-index: 10;
   top: 100px;
-  @apply px-12 flex-grow bg-primary;
+  @apply px-24 flex-grow bg-primary;
 }
 
 @screen md {
   .main-content {
-    width: calc(100%-380px);
-    margin-left: 380px;
+    width: calc(100% - var(--width));
+    margin-left: var(--width);
     z-index: 1;
+    top: 0;
   }
 }

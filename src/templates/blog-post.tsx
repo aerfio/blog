@@ -7,6 +7,8 @@ import SEO from "../components/seo";
 
 import { BlogPostTemplateProps, BlogPostTemplateContextProps } from "../types";
 
+import "./blog-post.scss";
+
 const BlogPostTemplate: React.FunctionComponent<PageProps<
   BlogPostTemplateProps,
   BlogPostTemplateContextProps
@@ -23,10 +25,15 @@ const BlogPostTemplate: React.FunctionComponent<PageProps<
       />
       <article>
         <header>
-          <h1 className="m-0">{post.frontmatter.title}</h1>
-          <p className="mb-6 block">{post.frontmatter.date}</p>
+          <h1 className="mt-6 text-main-text text-5xl font-medium">
+            {post.frontmatter.title}
+          </h1>
+          <p className="mb-6 block text-main-text">{post.frontmatter.date}</p>
         </header>
-        <section dangerouslySetInnerHTML={{ __html: post.html }} />
+        <section
+          className="blog-post-content"
+          dangerouslySetInnerHTML={{ __html: post.html }}
+        />
         <hr />
         <footer>
           <Bio />

@@ -1,0 +1,81 @@
+.blog-post-content {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 3rem;
+    margin-bottom: 1.75rem;
+    color: var(--text-main);
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 1.7rem;
+    font-weight: 900;
+    line-height: 1.1;
+  }
+  h3 {
+    font-size: 1.4rem;
+    font-weight: 900;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  h5 {
+    font-size: 0.8rem;
+  }
+  h6 {
+    font-size: 0.7rem;
+  }
+  p {
+    margin-bottom: 1.75rem;
+    color: var(--text-main);
+  }
+  table {
+    margin-bottom: 1.75rem;
+  }
+  th,
+  tr {
+    color: var(--text-main);
+  }
+  td,
+  th {
+    padding: 0.875rem 1.16rem;
+  }
+  td:last-child,
+  th:last-child {
+    padding-right: 0;
+  }
+
+  td:first-child,
+  th:first-child {
+    padding-left: 0;
+  }
+  ul,
+  ol {
+    margin-left: 0;
+  }
+  li {
+    display: list-item;
+    color: var(--text-main);
+    margin-bottom: calc(1.75rem / 2);
+    & > p {
+      margin-bottom: calc(1.75rem / 2);
+    }
+    & > ol,
+    ul {
+      margin-left: 1.75rem;
+      margin-top: calc(1.75rem / 2);
+    }
+  }
+  ol {
+    list-style-type: decimal;
+  }
+  ul {
+    list-style-type: circle;
+  }
+}
