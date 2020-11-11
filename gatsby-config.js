@@ -7,7 +7,7 @@ module.exports = {
       summary: `web dev`,
     },
     description: `A simple, fixed sidebar two columns Gatsby.js blog starter.`,
-    siteUrl: `https://renyuanz.github.io/leonids`,
+    siteUrl: `https://aerfio-blog.netlify.app`,
     defaultImage: "images/bg.jpeg",
   },
   plugins: [
