@@ -7,7 +7,7 @@ body {
 }
 
 .sidebar_main-content_container {
-  --width: 200px;
+  --width: 400px;
   @apply flex flex-no-wrap flex-row flex-col h-screen bg-primary;
 }
 @screen md {
@@ -17,14 +17,18 @@ body {
 .sidebar {
   width: 100%;
   z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "overlap";
   @apply bg-secondary transition-colors duration-200 ease-out fixed;
 }
 
-@screen md {
+@screen xl {
   .sidebar {
     width: var(--width);
     min-width: var(--width);
-    @apply h-screen flex justify-center;
+    @apply h-screen justify-center;
   }
 }
 
@@ -35,7 +39,7 @@ body {
   @apply px-24 flex-grow bg-primary;
 }
 
-@screen md {
+@screen xl {
   .main-content {
     width: calc(100% - var(--width));
     margin-left: var(--width);

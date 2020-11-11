@@ -26,7 +26,7 @@ const BlogPostTemplate: React.FunctionComponent<PageProps<
       />
       <article>
         <header>
-          <h1 className="mt-6 text-main-text text-5xl font-medium">
+          <h1 className="mt-6 text-accent text-5xl font-medium">
             {post.frontmatter.title}
           </h1>
           <p className="mb-6 block text-main-text">{post.frontmatter.date}</p>

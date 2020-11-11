@@ -1,0 +1,11 @@
+@tailwind utilities;
+@tailwind base;
+@tailwind components;
+
+#tsparticles,
+.sidebar-text-container {
+  grid-area: overlap;
+}
+.sidebar-text-container {
+  @apply flex flex-col justify-center items-center p-6 z-10;
+}

@@ -49,8 +49,8 @@ const BlogIndex: React.FunctionComponent<PageProps<
         return (
           <article key={node.fields.slug}>
             <header>
-              <h3 className="text-main-text mt-10 text-2xl">
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+              <h3 className="text-accent mt-10 text-3xl font-semibold">
+                <Link className="shadow-none" to={node.fields.slug}>
                   {title}
                 </Link>
               </h3>
