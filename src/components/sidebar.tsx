@@ -98,7 +98,7 @@ const tsParcilesJsonWithColors = (
       },
     },
     size: {
-      value: 3.5,
+      value: 4,
       random: false,
       anim: {
         enable: true,
