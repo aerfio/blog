@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "author": "Mateusz Puczyński <mati6095@gmail.com>",
   "bugs": {
-    "url": "https://github.com/renyuanz/leonids/issues"
+    "url": "https://github.com/aerfio/blog/issues"
   },
   "dependencies": {
     "@tailwindcss/custom-forms": "^0.2.1",
@@ -42,7 +42,8 @@
     "prismjs": "^1.21.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "react-tsparticles": "^1.18.11"
   },
   "devDependencies": {
     "@types/node": "^14.11.8",
@@ -63,19 +64,15 @@
     "tslib": "^2.0.3",
     "typescript": "^4.0.3"
   },
-  "homepage": "https://github.com/renyuanz/leonids#readme",
+  "homepage": "https://github.com/aerfio/blog#readme",
   "keywords": [
     "gatsby"
   ],
-  "license": "MIT",
+  "license": "Apache",
   "main": "n/a",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/renyuanz/leonids.git"
-  },
   "scripts": {
     "build": "npm run clean && gatsby build",
-    "develop": "gatsby develop",
+    "develop": "npm run clean && gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",

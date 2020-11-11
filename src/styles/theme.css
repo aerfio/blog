@@ -17,4 +17,7 @@ body.dark {
 
 body {
   background-color: var(--primary);
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  transition-property: background-color, border-color, color, fill, stroke;
 }

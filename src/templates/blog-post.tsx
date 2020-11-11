@@ -1,13 +1,14 @@
 import React from "react";
 import { Link, graphql, PageProps } from "gatsby";
 
-import Bio from "../components/bio";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
 import { BlogPostTemplateProps, BlogPostTemplateContextProps } from "../types";
 
 import "./blog-post.scss";
+import "./prismjs-light.scss";
+import "./prismjs-dark.scss";
 
 const BlogPostTemplate: React.FunctionComponent<PageProps<
   BlogPostTemplateProps,
@@ -35,23 +36,19 @@ const BlogPostTemplate: React.FunctionComponent<PageProps<
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
         <hr />
-        <footer>
-          <Bio />
-        </footer>
       </article>
-
-      <nav>
-        <ul className="flex flex-wrap list-type-none p-0">
+      <nav className="pt-4">
+        <ul className="flex flex-wrap list-type-none p-0 justify-between">
           <li>
             {previous && (
-              <Link to={previous.fields.slug} rel="prev">
+              <Link to={previous.fields.slug} rel="prev" className="blog-link">
                 ← {previous.frontmatter.title}
               </Link>
             )}
           </li>
           <li>
             {next && (
-              <Link to={next.fields.slug} rel="next">
+              <Link to={next.fields.slug} rel="next" className="blog-link">
                 {next.frontmatter.title} →
               </Link>
             )}

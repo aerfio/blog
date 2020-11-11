@@ -74,14 +74,14 @@ const BlogIndex: React.FunctionComponent<PageProps<
         <ul className="flex flex-wrap justify-between list-none p-0">
           <li>
             {!isFirst && (
-              <Link to={prevPage} rel="prev" className="text-main-text">
+              <Link to={prevPage} rel="prev" className="blog-link text-lg">
                 ← Previous Page
               </Link>
             )}
           </li>
           <li>
             {!isLast && (
-              <Link to={nextPage} rel="next" className="text-main-text">
+              <Link to={nextPage} rel="next" className="blog-link">
                 Next Page →
               </Link>
             )}

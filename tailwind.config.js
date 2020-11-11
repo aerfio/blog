@@ -11,6 +11,9 @@ module.exports = {
         accent: "var(--accent)",
       },
     },
+    boxShadow: {
+      link: "0 1px 0 0 currentColor",
+    },
   },
   variants: {},
   // https://github.com/tailwindcss/custom-forms

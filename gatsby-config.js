@@ -11,6 +11,8 @@ module.exports = {
     defaultImage: "images/bg.jpeg",
   },
   plugins: [
+    // https://www.gatsbyjs.com/plugins/gatsby-remark-prismjs/?=remark
+    // https://www.gatsbyjs.com/plugins/gatsby-remark-external-links/?=remark
     {
       resolve: `gatsby-plugin-typescript`,
       options: {
@@ -37,9 +39,13 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: `gatsby-remark-images`,
+            resolve: "gatsby-remark-images",
             options: {
-              maxWidth: 590,
+              maxWidth: 1200,
+              withWebp: true,
+              quality: 85,
+              tracedSVG: false,
+              showCaptions: true,
             },
           },
           {

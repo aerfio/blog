@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 import { ThemeToggler } from "gatsby-plugin-dark-mode";
+import Particles from "react-tsparticles";
 
 import Footer from "./footer";
 import "../styles/global.css";
