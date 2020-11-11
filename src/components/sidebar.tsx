@@ -31,8 +31,8 @@ export const Sidebar: React.FunctionComponent<{ title: string }> = ({
               id="tsparticles"
               options={
                 isDarkMode
-                  ? tsParcilesJsonWithColors(darkThemeColors, "#33b1f8")
-                  : tsParcilesJsonWithColors(lightThemeColors, "#DF3F4A")
+                  ? tsParcilesJsonWithColors(darkThemeColors, "#DF3F4A")
+                  : tsParcilesJsonWithColors(lightThemeColors, "#33b1f8")
               }
               className="hidden xl:block"
             />
@@ -133,18 +133,18 @@ const tsParcilesJsonWithColors = (
     detect_on: "canvas",
     events: {
       onhover: {
-        enable: false,
-        mode: "repulse",
+        enable: true,
+        mode: "grab",
       },
       onclick: {
-        enable: false,
+        enable: true,
         mode: "push",
       },
       resize: true,
     },
     modes: {
       grab: {
-        distance: 400,
+        distance: 100,
         line_linked: {
           opacity: 1,
         },
