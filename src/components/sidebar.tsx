@@ -6,70 +6,76 @@ import Particles from "react-tsparticles";
 
 import "./sidebar.css";
 
+type ThemeType = "light" | "dark";
+
 export const Sidebar: React.FunctionComponent<{ title: string }> = ({
   title,
 }) => (
   <div className="sidebar">
-    <Particles
-      id="tsparticles"
-      options={tsParcilesJson}
-      className="hidden xl:block"
-    />
-    <div className="sidebar-text-container">
-      <ThemeToggler>
-        {({ theme }: { theme: ThemeType }) => <div>{theme}</div>}
-      </ThemeToggler>
-      <Toggle />
-      <h2>
-        <Link className="shadow-none text-main-text" to={`/`}>
-          {title}
-        </Link>
-      </h2>
-    </div>
+    <ThemeToggler>
+      {({
+        toggleTheme,
+        theme,
+      }: {
+        toggleTheme: (a: ThemeType) => void;
+        theme: ThemeType;
+      }) => {
+        const isDarkMode = theme === "dark";
+        if (theme === null) {
+          return null;
+        }
+
+        return (
+          <>
+            <Particles
+              id="tsparticles"
+              options={
+                isDarkMode
+                  ? tsParcilesJsonWithColors(darkThemeColors, "#33b1f8")
+                  : tsParcilesJsonWithColors(lightThemeColors, "#DF3F4A")
+              }
+              className="hidden xl:block"
+            />
+            <div className="sidebar-text-container">
+              <button
+                aria-label="theme-switch"
+                className="leading-none p-1 text-main-text"
+                onClick={() => toggleTheme(isDarkMode ? "light" : "dark")}
+              >
+                {isDarkMode ? <DarkSvg /> : <LightSvg />}
+              </button>
+              <h2>
+                <Link className="shadow-none text-main-text" to={`/`}>
+                  {title}
+                </Link>
+              </h2>
+            </div>
+          </>
+        );
+      }}
+    </ThemeToggler>
   </div>
 );
 
-type ThemeType = "light" | "dark";
+const darkThemeColors = ["#aa73ff", "#f8c210", "#83d238", "#33b1f8"];
 
-const Toggle: React.FunctionComponent = () => (
-  <ThemeToggler>
-    {({
-      toggleTheme,
-      theme,
-    }: {
-      toggleTheme: (a: ThemeType) => void;
-      theme: ThemeType;
-    }) => {
-      const isDarkMode = theme === "dark";
-      if (theme === null) {
-        return null;
-      }
+const lightThemeColors = ["#480B19", "#221D11", "#000", "#F45D0D"];
 
-      return (
-        <button
-          aria-label="theme-switch"
-          className="leading-none p-1 text-main-text"
-          onClick={() => toggleTheme(isDarkMode ? "light" : "dark")}
-        >
-          {isDarkMode ? <DarkSvg /> : <LightSvg />}
-        </button>
-      );
-    }}
-  </ThemeToggler>
-);
-
-const tsParcilesJson = {
+const tsParcilesJsonWithColors = (
+  particlesColors: string[],
+  lineColor: string,
+) => ({
   fpsLimit: 60,
   particles: {
     number: {
-      value: 88,
+      value: 100,
       density: {
         enable: true,
         value_area: 700,
       },
     },
     color: {
-      value: ["#aa73ff", "#f8c210", "#83d238", "#33b1f8"],
+      value: particlesColors,
     },
     shape: {
       type: "circle",
@@ -87,12 +93,12 @@ const tsParcilesJson = {
       anim: {
         enable: false,
         speed: 3,
-        opacity_min: 0.15,
+        opacity_min: 0.35,
         sync: false,
       },
     },
     size: {
-      value: 3,
+      value: 3.5,
       random: false,
       anim: {
         enable: true,
@@ -104,13 +110,13 @@ const tsParcilesJson = {
     line_linked: {
       enable: true,
       distance: 100,
-      color: "#33b1f8",
-      opacity: 0.25,
-      width: 1.5,
+      color: lineColor,
+      opacity: 0.55,
+      width: 2,
     },
     move: {
       enable: true,
-      speed: 1.6,
+      speed: 3,
       direction: "none",
       random: false,
       straight: false,
@@ -163,7 +169,7 @@ const tsParcilesJson = {
     },
   },
   retina_detect: true,
-};
+});
 
 const DarkSvg: React.FunctionComponent = () => (
   <svg
