@@ -44,6 +44,9 @@ const BlogIndex: React.FunctionComponent<PageProps<
   return (
     <Layout title={siteTitle}>
       <SEO title="All posts" />
+      <h2 className="text-4xl text-accent text-center font-semibold mt-5">
+        Today I learned
+      </h2>
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug;
         return (
