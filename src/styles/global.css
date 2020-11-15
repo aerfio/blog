@@ -10,9 +10,6 @@ body {
   --width: 400px;
   @apply flex flex-no-wrap flex-row flex-col h-screen bg-primary;
 }
-@screen md {
-  @apply flex-row;
-}
 
 .sidebar {
   width: 100%;
@@ -36,15 +33,14 @@ body {
   position: absolute;
   z-index: 10;
   top: 100px;
-  @apply px-24 flex-grow bg-primary;
+  @apply px-8 flex-grow bg-primary w-screen;
 }
 
 @screen xl {
   .main-content {
     width: calc(100% - var(--width));
     margin-left: var(--width);
-    z-index: 1;
-    top: 0;
+    @apply z-10 top-0 px-24;
   }
 }
 
