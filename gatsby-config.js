@@ -140,7 +140,14 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
     "gatsby-plugin-dark-mode",
-    "gatsby-plugin-sass",
+
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        // Configure SASS to process Tailwind
+        postCssPlugins: [require("tailwindcss")],
+      },
+    },
     "gatsby-plugin-postcss",
     // {
     //   // this doesn't seem to work -> further inspect why

@@ -33,14 +33,19 @@ body {
   position: absolute;
   z-index: 10;
   top: 100px;
-  @apply px-8 flex-grow bg-primary w-screen;
+  @apply px-4 flex-grow bg-primary w-screen;
+}
+@screen md {
+  .main-content {
+    @apply px-12;
+  }
 }
 
 @screen xl {
   .main-content {
     width: calc(100% - var(--width));
     margin-left: var(--width);
-    @apply z-10 top-0 px-24;
+    @apply z-10 top-0 px-16;
   }
 }
 
