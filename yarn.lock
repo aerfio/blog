@@ -3004,7 +3004,7 @@ babel-plugin-extract-import-names@^2.0.0-next.8:
   dependencies:
     "@babel/helper-plugin-utils" "7.10.4"
 
-babel-plugin-lodash@3.3.4, babel-plugin-lodash@^3.3.4:
+babel-plugin-lodash@3.3.4:
   version "3.3.4"
   resolved "https://registry.yarnpkg.com/babel-plugin-lodash/-/babel-plugin-lodash-3.3.4.tgz#4f6844358a1340baed182adbeffa8df9967bc196"
   integrity sha512-yDZLjK7TCkWl1gpBeBGmuaDIFhZKmkoL+Cu2MUUjv5VxUZx/z7tBGBCBcQs5RI1Bkz5LLmNdjx7paOyQtMovyg==
@@ -6809,15 +6809,6 @@ gatsby-plugin-feed@^2.5.11:
     lodash.merge "^4.6.2"
     rss "^1.2.2"
 
-gatsby-plugin-lodash@^3.4.0:
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-lodash/-/gatsby-plugin-lodash-3.4.0.tgz#0e779f0c596e9926470175d1995c0803c770b63b"
-  integrity sha512-CiZIm1yzANxh6YHCsdcF1/fwYguBKPGMXwmwrQGRc1ZQwxfxOhVDQAf8VEzj2vvPK8OOsg8GfXCcfYbOqoVbmA==
-  dependencies:
-    "@babel/runtime" "^7.11.2"
-    babel-plugin-lodash "^3.3.4"
-    lodash-webpack-plugin "^0.11.5"
-
 gatsby-plugin-manifest@^2.4.23:
   version "2.4.34"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-2.4.34.tgz#3628df53ccf59e04e93eca397287484315fea715"
@@ -9632,13 +9623,6 @@ lodash-es@^4.17.14:
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.15.tgz#21bd96839354412f23d7a10340e5eac6ee455d78"
   integrity sha512-rlrc3yU3+JNOpZ9zj5pQtxnx2THmvRykwL4Xlxoa8I9lHBlVbbyPhgyPMioxVZ4NqyxaVVtaJnzsyOidQIhyyQ==
-
-lodash-webpack-plugin@^0.11.5:
-  version "0.11.5"
-  resolved "https://registry.yarnpkg.com/lodash-webpack-plugin/-/lodash-webpack-plugin-0.11.5.tgz#c4bd064b4f561c3f823fa5982bdeb12c475390b9"
-  integrity sha512-QWfEIYxpixOdbd6KBe5g6MDWcyTgP3trDXwKHFqTlXrWiLcs/67fGQ0IWeRyhWlTITQIgMpJAYd2oeIztuV5VA==
-  dependencies:
-    lodash "^4.17.4"
 
 lodash.clonedeep@4.5.0:
   version "4.5.0"
