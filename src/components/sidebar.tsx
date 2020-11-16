@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
 import { ThemeToggler } from "gatsby-plugin-dark-mode";
-// import { tsparticles } from "tsparticles";
 import Particles from "react-tsparticles";
 
 import "./sidebar.css";

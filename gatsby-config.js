@@ -28,7 +28,6 @@ module.exports = {
         name: `blog`,
       },
     },
-    `gatsby-plugin-lodash`,
     // {
     //   resolve: `gatsby-source-filesystem`,
     //   options: {
