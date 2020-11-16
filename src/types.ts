@@ -38,6 +38,7 @@ export interface BlogPost {
     title: string;
     date: string;
     description: string;
+    sources?: string[];
   };
   fields: {
     slug: string;

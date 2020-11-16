@@ -35,8 +35,25 @@ const BlogPostTemplate: React.FunctionComponent<PageProps<
           className="blog-post-content"
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
+
+        {post.frontmatter.sources ? (
+          <>
+            <h4 className="text-main-text">Sources:</h4>
+            <ol className="list-decimal ml-5 text-main-text pb-2">
+              {post.frontmatter.sources.map(elem => (
+                <li key={elem} className="underline">
+                  <a href={elem} rel="noreferrer nofollow noopener">
+                    {elem}
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </>
+        ) : null}
+
         <hr />
       </article>
+
       <nav className="pt-4">
         <ul className="flex flex-wrap list-type-none p-0 justify-between">
           <li>
@@ -76,6 +93,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        sources
       }
     }
   }

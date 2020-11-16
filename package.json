@@ -2,7 +2,7 @@
   "name": "gatsby-aerfio-blog",
   "private": true,
   "description": "A blog powered by Gatsby and Markdown",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "Mateusz Puczyński <mati6095@gmail.com>",
   "bugs": {
     "url": "https://github.com/aerfio/blog/issues"
