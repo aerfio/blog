@@ -13,6 +13,7 @@ module.exports = {
   plugins: [
     // https://www.gatsbyjs.com/plugins/gatsby-remark-prismjs/?=remark
     // https://www.gatsbyjs.com/plugins/gatsby-remark-external-links/?=remark
+
     {
       resolve: `gatsby-plugin-typescript`,
       options: {
@@ -27,6 +28,7 @@ module.exports = {
         name: `blog`,
       },
     },
+    `gatsby-plugin-lodash`,
     // {
     //   resolve: `gatsby-source-filesystem`,
     //   options: {
@@ -54,6 +56,7 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
+          "gatsby-remark-external-links",
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,

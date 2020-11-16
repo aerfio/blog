@@ -41,7 +41,7 @@ const BlogPostTemplate: React.FunctionComponent<PageProps<
             <h4 className="text-main-text">Sources:</h4>
             <ol className="list-decimal ml-5 text-main-text pb-2">
               {post.frontmatter.sources.map(elem => (
-                <li key={elem} className="underline">
+                <li key={elem} className="underline hover:no-underline">
                   <a href={elem} rel="noreferrer nofollow noopener">
                     {elem}
                   </a>
