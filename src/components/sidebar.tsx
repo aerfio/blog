@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import { ThemeToggler } from "gatsby-plugin-dark-mode";
 import Particles from "react-tsparticles";
+import Helmet from "react-helmet";
 
 import "./sidebar.css";
 
@@ -26,6 +27,16 @@ export const Sidebar: React.FunctionComponent<{ title: string }> = ({
 
         return (
           <>
+            <Helmet
+              meta={[
+                {
+                  name: "theme-color",
+                  content: getComputedStyle(document.body).getPropertyValue(
+                    "--primary",
+                  ),
+                },
+              ]}
+            />
             <Particles
               id="tsparticles"
               options={
