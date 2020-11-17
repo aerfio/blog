@@ -32,7 +32,7 @@ export const Sidebar: React.FunctionComponent<{ title: string }> = ({
                 {
                   name: "theme-color",
                   content: getComputedStyle(document.body).getPropertyValue(
-                    "--primary",
+                    "--secondary",
                   ),
                 },
               ]}
