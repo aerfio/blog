@@ -28,13 +28,13 @@ module.exports = {
         name: `blog`,
       },
     },
-    // {
-    //   resolve: `gatsby-source-filesystem`,
-    //   options: {
-    //     path: `${__dirname}/content/assets`,
-    //     name: `assets`,
-    //   },
-    // },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/assets`,
+        name: `assets`,
+      },
+    },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -45,8 +45,9 @@ module.exports = {
               maxWidth: 1200,
               withWebp: true,
               quality: 85,
-              tracedSVG: false,
-              showCaptions: true,
+              tracedSVG: true,
+              showCaptions: false,
+              backgroundColor: "transparent",
             },
           },
           {
