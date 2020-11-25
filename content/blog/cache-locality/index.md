@@ -2,7 +2,7 @@
 title: Cache locality
 date: "2020-11-16T21:02:02.284Z"
 description: "Very, very short tldr about key concept of locality of reference"
-categories: [golang]
+categories: [programming-languages golang go]
 sources:
   [
     https://teivah.medium.com/go-and-cpu-caches-af5d32cc5592,

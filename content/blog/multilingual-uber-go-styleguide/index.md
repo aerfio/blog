@@ -2,7 +2,7 @@
 title: Uber Go Style Guide translations
 date: "2020-11-25T23:51:02.284Z"
 description: "If you feel like it you can read it in your native language"
-categories: []
+categories: [golang go guides]
 sources: [https://github.com/uber-go/guide]
 ---
 
