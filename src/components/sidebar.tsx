@@ -1,55 +1,67 @@
-import React from "react";
+import React, { memo, lazy, Suspense } from "react";
 import { Link } from "gatsby";
 import { ThemeToggler } from "gatsby-plugin-dark-mode";
-import { Particles } from "./particles";
 import { ManifestThemeColor } from "./manifestThemeColor";
+import { useWindowSize } from "../utils";
+
+const Particles = lazy(() => import("./particles"));
 
 import "./sidebar.css";
 
 type ThemeType = "light" | "dark";
 
-export const Sidebar: React.FunctionComponent<{ title: string }> = ({
-  title,
-}) => (
-  <div className="sidebar">
-    <ThemeToggler>
-      {({
-        toggleTheme,
-        theme,
-      }: {
-        toggleTheme: (a: ThemeType) => void;
-        theme: ThemeType;
-      }) => {
-        const isDarkMode = theme === "dark";
-        if (theme === null) {
-          return null;
-        }
+export const Sidebar = memo<{ title: string }>(
+  ({ title }) => {
+    const { width } = useWindowSize();
+    const isXLDevice = !!width && width >= 1280;
 
-        return (
-          <>
-            {/* ManifestThemeColor needs to be here in order to rerender after changing theme */}
-            <ManifestThemeColor />
-            <Particles isDarkMode={isDarkMode} />
-            <div className="sidebar-text-container">
-              <button
-                aria-label="theme-switch"
-                className="leading-none p-1 text-main-text"
-                onClick={() => toggleTheme(isDarkMode ? "light" : "dark")}
-              >
-                {isDarkMode ? <DarkSvg /> : <LightSvg />}
-              </button>
-              <h2>
-                <Link className="shadow-none text-main-text" to={`/`}>
-                  {title}
-                </Link>
-              </h2>
-            </div>
-          </>
-        );
-      }}
-    </ThemeToggler>
-  </div>
+    return (
+      <div className="sidebar">
+        <ThemeToggler>
+          {({
+            toggleTheme,
+            theme,
+          }: {
+            toggleTheme: (a: ThemeType) => void;
+            theme: ThemeType;
+          }) => {
+            const isDarkMode = theme === "dark";
+            if (theme === null) {
+              return null;
+            }
+
+            return (
+              <>
+                {/* ManifestThemeColor needs to be here in order to rerender after changing theme */}
+                <ManifestThemeColor />
+                <Suspense fallback={null}>
+                  {isXLDevice ? <Particles isDarkMode={isDarkMode} /> : null}
+                </Suspense>
+                <div className="sidebar-text-container">
+                  <button
+                    aria-label="theme-switch"
+                    className="leading-none p-1 text-main-text"
+                    onClick={() => toggleTheme(isDarkMode ? "light" : "dark")}
+                  >
+                    {isDarkMode ? <DarkSvg /> : <LightSvg />}
+                  </button>
+                  <h2>
+                    <Link className="shadow-none text-main-text" to={`/`}>
+                      {title}
+                    </Link>
+                  </h2>
+                </div>
+              </>
+            );
+          }}
+        </ThemeToggler>
+      </div>
+    );
+  },
+  (a, b) => a.title === b.title,
 );
+
+Sidebar.displayName = "Sidebar";
 
 const DarkSvg: React.FunctionComponent = () => (
   <svg

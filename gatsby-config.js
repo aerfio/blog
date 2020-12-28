@@ -14,6 +14,13 @@ module.exports = {
     // https://www.gatsbyjs.com/plugins/gatsby-remark-prismjs/?=remark
     // https://www.gatsbyjs.com/plugins/gatsby-remark-external-links/?=remark
 
+    // TODO: introduce gatsby-plugin-layout in order to prevent useless rerenders
+    // {
+    //   resolve: `gatsby-plugin-layout`,
+    //   options: {
+    //     component: require.resolve(`./src/components/layout.tsx`),
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-typescript`,
       options: {
@@ -117,8 +124,7 @@ module.exports = {
         ],
       },
     },
-
-    //  todo: add gatsby plugin sitemap
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

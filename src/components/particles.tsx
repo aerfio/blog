@@ -1,25 +1,18 @@
-import React, { FunctionComponent } from "react";
+import React, { memo } from "react";
 import TSParticles from "react-tsparticles";
 
-export const Particles: FunctionComponent<{ isDarkMode: boolean }> = ({
-  isDarkMode,
-}) => (
+const Particles = memo<{ isDarkMode: boolean }>(({ isDarkMode }) => (
   <TSParticles
     id="tsparticles"
-    options={
-      isDarkMode
-        ? tsParcilesJsonWithColors(darkThemeColors, darkThemeLineColor)
-        : tsParcilesJsonWithColors(lightThemeColors, lightThemeLineColor)
-    }
+    options={isDarkMode ? dark : light}
     className="hidden xl:block"
   />
-);
+));
 
-const darkThemeColors = ["#aa73ff", "#f8c210", "#83d238", "#33b1f8"];
-const darkThemeLineColor = "#DF3F4A";
+// no named export, we'll lazy load this component
+export default Particles;
 
-const lightThemeColors = ["#480B19", "#221D11", "#000", "#F45D0D"];
-const lightThemeLineColor = "#33b1f8";
+Particles.displayName = "Particles";
 
 const tsParcilesJsonWithColors = (
   particlesColors: string[],
@@ -130,3 +123,12 @@ const tsParcilesJsonWithColors = (
   },
   retina_detect: true,
 });
+
+const darkThemeColors = ["#aa73ff", "#f8c210", "#83d238", "#33b1f8"];
+const darkThemeLineColor = "#DF3F4A";
+
+const lightThemeColors = ["#480B19", "#221D11", "#000", "#F45D0D"];
+const lightThemeLineColor = "#33b1f8";
+
+const dark = tsParcilesJsonWithColors(darkThemeColors, darkThemeLineColor);
+const light = tsParcilesJsonWithColors(lightThemeColors, lightThemeLineColor);
