@@ -36,7 +36,8 @@ const BlogPostTemplate: React.FunctionComponent<PageProps<
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
 
-        {post.frontmatter.sources ? (
+        {Array.isArray(post.frontmatter.sources) &&
+        post.frontmatter.sources.length > 0 ? (
           <>
             <h4 className="text-main-text">Sources:</h4>
             <ol className="list-decimal ml-5 text-main-text pb-2">
