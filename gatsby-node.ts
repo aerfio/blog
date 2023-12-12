@@ -1,11 +1,15 @@
-const path = require(`path`);
-const { createFilePath } = require(`gatsby-source-filesystem`);
+import type { GatsbyNode } from "gatsby"
+import { BlogIndexProps } from "./src/templates/blog-list"
+import path from "path";
+import { createFilePath } from "gatsby-source-filesystem";
 
-exports.createPages = async ({ graphql, actions }) => {
+
+
+export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
   const blogPost = path.resolve(`./src/templates/blog-post.tsx`);
-  const result = await graphql(
+  const result = await graphql<BlogIndexProps>(
     `
       {
         allMarkdownRemark(
@@ -29,6 +33,9 @@ exports.createPages = async ({ graphql, actions }) => {
 
   if (result.errors) {
     throw result.errors;
+  }
+  if (!result.data) {
+    throw "result data is falsy"
   }
 
   // Create blog posts pages.
@@ -67,7 +74,7 @@ exports.createPages = async ({ graphql, actions }) => {
   });
 };
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
+export const onCreateNode: GatsbyNode["onCreateNode"] = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === `MarkdownRemark`) {

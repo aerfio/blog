@@ -10,10 +10,9 @@ import "./blog-post.scss";
 import "./prismjs-light.scss";
 import "./prismjs-dark.scss";
 
-const BlogPostTemplate: React.FunctionComponent<PageProps<
-  BlogPostTemplateProps,
-  BlogPostTemplateContextProps
->> = ({ data, pageContext }) => {
+const BlogPostTemplate: React.FunctionComponent<
+  PageProps<BlogPostTemplateProps, BlogPostTemplateContextProps>
+> = ({ data, pageContext }) => {
   const post = data.markdownRemark;
 
   const { previous, next } = pageContext;

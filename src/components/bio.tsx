@@ -1,11 +1,11 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import Image, { GatsbyImageFixedProps } from "gatsby-image";
+import { GatsbyImage, GatsbyImageProps } from "gatsby-plugin-image";
 import { SiteProps } from "../types";
 
 const Bio: React.FC = () => {
   const data = useStaticQuery<
-    SiteProps & { avatar: { childImageSharp: GatsbyImageFixedProps } }
+    SiteProps & { avatar: { childImageSharp: GatsbyImageProps } }
   >(graphql`
     query BioQuery {
       avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
@@ -29,10 +29,11 @@ const Bio: React.FC = () => {
   const { author } = data.site.siteMetadata;
   return (
     <div className="flex">
-      <Image
-        fixed={data.avatar.childImageSharp.fixed}
+      <GatsbyImage
+        image={data.avatar.childImageSharp.image}
+        // fixed={data.avatar.childImageSharp.fixed}
         alt={author.name}
-        className="mb-0 "
+        className="mb-0"
         // style={{minWidth: 50}}
         imgStyle={{
           borderRadius: `50%`,

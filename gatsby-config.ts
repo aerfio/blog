@@ -1,4 +1,6 @@
-module.exports = {
+import type { GatsbyConfig } from "gatsby"
+
+const config: GatsbyConfig = {
   pathPrefix: "/leonids",
   siteMetadata: {
     title: `Mateusz Puczyński`,
@@ -49,12 +51,17 @@ module.exports = {
           {
             resolve: "gatsby-remark-images",
             options: {
-              maxWidth: 1200,
-              withWebp: true,
-              quality: 85,
-              tracedSVG: true,
+              maxWidth: 800,
+              withWebp: {
+                quality: 95,
+              },
+              quality: 95,
+              withAvif: {
+                quality: 95,
+              },
               showCaptions: false,
               backgroundColor: "transparent",
+              disableBgImageOnAlpha: true,
             },
           },
           {
@@ -70,8 +77,9 @@ module.exports = {
         ],
       },
     },
-    `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-feed`,
       options: {
@@ -89,8 +97,8 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) =>
-              allMarkdownRemark.edges.map(edge =>
+            serialize: ({ query: { site, allMarkdownRemark } }: { query: { site: { siteMetadata: NonNullable<GatsbyConfig["siteMetadata"]> }, allMarkdownRemark: any } }) =>
+              allMarkdownRemark.edges.map((edge: any) =>
                 Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
                   date: edge.node.frontmatter.date,
@@ -161,7 +169,6 @@ module.exports = {
     //   },
     // },
     `gatsby-plugin-netlify`,
-    `gatsby-plugin-netlify-cache`,
     "gatsby-plugin-sitemap",
     "gatsby-plugin-uninline-styles",
     {
@@ -174,3 +181,5 @@ module.exports = {
     },
   ],
 };
+
+export default config

@@ -9,18 +9,16 @@ const SEO: React.FunctionComponent<SEOProps> = ({
   meta = [],
   title = "",
 }) => {
-  const { site } = useStaticQuery<SiteProps>(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-          }
+  const { site } = useStaticQuery<SiteProps>(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          description
         }
       }
-    `,
-  );
+    }
+  `);
 
   const metaDescription = description || site.siteMetadata.description;
 

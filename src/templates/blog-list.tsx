@@ -10,7 +10,7 @@ type PageContext = {
   numPages: number;
 };
 
-interface BlogIndexProps {
+export interface BlogIndexProps {
   allMarkdownRemark: {
     edges: {
       node: {
@@ -28,10 +28,9 @@ interface BlogIndexProps {
   };
 }
 
-const BlogIndex: React.FunctionComponent<PageProps<
-  BlogIndexProps & SiteProps,
-  PageContext
->> = ({ data, pageContext }) => {
+const BlogIndex: React.FunctionComponent<
+  PageProps<BlogIndexProps & SiteProps, PageContext>
+> = ({ data, pageContext }) => {
   const siteTitle = data.site.siteMetadata.title;
   const posts = data.allMarkdownRemark.edges;
   const { currentPage, numPages } = pageContext;

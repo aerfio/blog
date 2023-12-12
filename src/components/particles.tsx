@@ -1,13 +1,48 @@
-import React, { memo } from "react";
-import TSParticles from "react-tsparticles";
+import React, { memo, useEffect, useState } from "react";
+import TSParticles, { initParticlesEngine } from "@tsparticles/react";
+import type { Container, ISourceOptions } from "@tsparticles/engine";
+import { loadSlim } from "@tsparticles/slim";
 
-const Particles = memo<{ isDarkMode: boolean }>(({ isDarkMode }) => (
-  <TSParticles
-    id="tsparticles"
-    options={isDarkMode ? dark : light}
-    className="hidden xl:block"
-  />
-));
+const Particles = memo<{ isDarkMode: boolean }>(({ isDarkMode }) => {
+  const [init, setInit] = useState(false);
+
+  // this should be run only once per application lifetime
+  useEffect(() => {
+    initParticlesEngine(async engine => {
+      // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
+      // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
+      // starting from v2 you can add only the features you need reducing the bundle size
+      //await loadAll(engine);
+      //await loadFull(engine);
+
+      await loadSlim(engine);
+    })
+      .catch(e => {
+        console.error(e);
+      })
+      .then(() => {
+        setInit(true);
+      });
+  }, []);
+
+  const particlesLoaded = async (container?: Container) => {
+    if (container) {
+      console.log(container);
+    }
+    return undefined;
+  };
+
+  return (
+    init && (
+      <TSParticles
+        id="tsparticles"
+        particlesLoaded={particlesLoaded}
+        options={isDarkMode ? dark : light}
+        className="hidden xl:block"
+      />
+    )
+  );
+});
 
 // no named export, we'll lazy load this component
 export default Particles;
@@ -17,14 +52,13 @@ Particles.displayName = "Particles";
 const tsParcilesJsonWithColors = (
   particlesColors: string[],
   lineColor: string,
-) => ({
+): ISourceOptions => ({
   fpsLimit: 60,
   particles: {
     number: {
       value: 100,
       density: {
         enable: true,
-        value_area: 700,
       },
     },
     color: {
@@ -32,33 +66,12 @@ const tsParcilesJsonWithColors = (
     },
     shape: {
       type: "circle",
-      stroke: {
-        width: 0,
-        color: "#000000",
-      },
-      polygon: {
-        nb_sides: 30,
-      },
     },
     opacity: {
       value: 0.5,
-      random: false,
-      anim: {
-        enable: false,
-        speed: 3,
-        opacity_min: 0.35,
-        sync: false,
-      },
     },
     size: {
       value: 4,
-      random: false,
-      anim: {
-        enable: true,
-        speed: 2,
-        size_min: 0.15,
-        sync: false,
-      },
     },
     line_linked: {
       enable: true,
@@ -73,27 +86,23 @@ const tsParcilesJsonWithColors = (
       direction: "none",
       random: false,
       straight: false,
-      out_mode: "out",
-      bounce: false,
+
       attract: {
         enable: false,
-        rotateX: 600,
-        rotateY: 1200,
       },
     },
   },
   interactivity: {
     detect_on: "canvas",
     events: {
-      onhover: {
+      onHover: {
         enable: true,
         mode: "grab",
       },
-      onclick: {
+      onClick: {
         enable: true,
         mode: "push",
       },
-      resize: true,
     },
     modes: {
       grab: {
@@ -130,5 +139,11 @@ const darkThemeLineColor = "#DF3F4A";
 const lightThemeColors = ["#480B19", "#221D11", "#000", "#F45D0D"];
 const lightThemeLineColor = "#33b1f8";
 
-const dark = tsParcilesJsonWithColors(darkThemeColors, darkThemeLineColor);
-const light = tsParcilesJsonWithColors(lightThemeColors, lightThemeLineColor);
+const dark: ISourceOptions = tsParcilesJsonWithColors(
+  darkThemeColors,
+  darkThemeLineColor,
+);
+const light: ISourceOptions = tsParcilesJsonWithColors(
+  lightThemeColors,
+  lightThemeLineColor,
+);

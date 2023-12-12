@@ -4,7 +4,7 @@ import Footer from "./footer";
 import "../styles/global.css";
 import "../styles/theme.css";
 
-const Layout: React.FunctionComponent<{ title: string }> = ({
+const Layout: React.FC<React.PropsWithChildren<{ title: string }>> = ({
   title,
   children,
 }) => (
@@ -12,7 +12,7 @@ const Layout: React.FunctionComponent<{ title: string }> = ({
     <div className="sidebar_main-content_container">
       <Sidebar title={title}></Sidebar>
       <div className="main-content">
-        <main>{children}</main>
+        <main className="h-screen">{children}</main>
         <Footer />
       </div>
     </div>
