@@ -1,5 +1,5 @@
 ---
-title: GCE workload detection
+title: Concurrent writes to Go slices
 date: "2023-12-12T12:29:02.284Z"
 description: "Concurrent writes to different slice indexes do not cause panic"
 categories: [golang go]

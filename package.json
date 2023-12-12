@@ -3,7 +3,7 @@
   "private": true,
   "description": "A blog powered by Gatsby and Markdown",
   "version": "1.0.0",
-  "author": "Mateusz Puczyński <mati6095@gmail.com>",
+  "author": "Mateusz Puczyński",
   "bugs": {
     "url": "https://github.com/aerfio/blog/issues"
   },
